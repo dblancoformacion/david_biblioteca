@@ -1,0 +1,36 @@
+*{margin:0px;padding:0px;}
+body{width:100%;height:100%;background-color:grey;}
+.wrapper{width:100%;height:100%;position:absolute;background-color:blue;z-index:-1000;}
+
+.wrapperb{width:1000px;height:500px;border:10px solid black;border-radius:10px;
+background-color:#28f6f9;position:absolute;top:100px;left:100px;}
+
+.items{width:180px;line-height:200px;border:10px solid black;margin:125px 25px;float:left;
+border-radius:10px;font-size:25px;font-weight:bold;font-family:arial;text-align:center;background-color:#f9dd28;
+z-index:1000;}
+
+.modal{width:100%;height:100%;background-color:grey;position:absolute;top:0px;left:0px;}
+.modalb{width:100%;height:100%;background-color:grey;position:absolute;top:0px;left:0px;}
+.unidad{width:800px;height:40px;background-color:white;font-weight:bold;font-family:arial;
+border:1px solid black;margin-top:10px;margin-left:15px;}
+
+.unidadb{width:800px;height:40px;background-color:white;font-weight:bold;font-family:arial;
+border:1px solid black;margin-top:10px;margin-left:15px;}
+
+.volver{width:50px;line-height:50px;background-color:black;position:absolute;top:800px;left:800px;
+	border-radius:8px;color:white;border:2px solid grey;text-align:center;z-index:2001;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
