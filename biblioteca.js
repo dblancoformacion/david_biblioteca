@@ -34,7 +34,8 @@ function titulos(){
 	for (var i=0;i<datos1.length;i++){
 		document.querySelector(".modal").innerHTML+=
 	'<div class="unidad" id="'+datos1[i].id_titulo+'">'
-	+datos1[i].titulo+'</div>';
+	+'<a href="?id_titulo='+datos1[i].id_titulo+'">'
+	+datos1[i].titulo+'</a></div>';
 }
 x=document.querySelectorAll(".unidad");
 

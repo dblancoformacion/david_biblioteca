@@ -25,11 +25,14 @@
             case 'Autores':
                 sql2js('datos2','logos',"SELECT id_autor,autor,nacionalidad,nacimiento,fallece FROM autores;");
                 break;
-            
             default:
                 break;
-
         }
+        if(isset($_GET['id_titulo'])){
+                $sql="SELECT * FROM titulos WHERE id_titulo=".$_GET['id_titulo'].";";
+                sql2js('titulo','logos',$sql);
+        }
+
        /* if(isset($_GET['id_titulo']))
             sql2js('datos5','logos',"SELECT autor,nacionalidad,nacimiento,FALLECE FROM autores JOIN escriben USING(id_autor) WHERE id_titulo=".$_GET['id_titulo'].";");*/
         
@@ -37,7 +40,7 @@
     
 ?>
     <link rel="stylesheet" type="text/css" href="biblioteca.css">
-    <script type="text/javascript" src="bibliotecab.js"></script>
+    <script type="text/javascript" src="biblioteca.js"></script>
 </head>
 
 <body>
