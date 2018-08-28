@@ -13,20 +13,17 @@
            
             case 'Titulos':
                 sql2js('datos1','logos',"SELECT * FROM titulos;");
-                sql2js('datos5','logos',"SELECT autor,nacionalidad,nacimiento,FALLECE FROM autores JOIN escriben USING(id_autor);");
+                sql2js('datos5','logos',"SELECT autor,nacionalidad,nacimiento,fallece FROM autores JOIN escriben USING(id_autor);");
                 break;
             case 'Generos':
-                sql2js('datos4','logos',"SELECT distinct(genero),id_genero FROM generos;");
-                break;
-            case 'id_genero'.$_GET['id_genero']:
-                sql2js('datos6','logos',"SELECT id_genero,genero,titulo,idioma,bilingue FROM titulos JOIN(SELECT * FROM expresan JOIN generos
-                            USING(id_genero)) c1 USING (id_titulo) where id_genero=".$_GET['?id_genero'].";");
+                sql2js('datos4','logos',"SELECT distinct(genero) FROM generos;");
                 break;
             case 'Editoriales':
-                sql2js('datos3','logos',"SELECT distinct(editorial) FROM editoriales;");
+                sql2js('datos3','logos',"SELECT * FROM editoriales;");
+                sql2js('datos6','logos',"SELECT * FROM editoriales LEFT JOIN (SELECT * FROM titulos JOIN publican p USING(id_titulo))c1 USING(id_editorial);");
                 break;
             case 'Autores':
-                sql2js('datos2','logos',"SELECT distinct(autor) FROM autores;");
+                sql2js('datos2','logos',"SELECT id_autor,autor,nacionalidad,nacimiento,fallece FROM autores;");
                 break;
             
             default:
@@ -40,7 +37,7 @@
     
 ?>
     <link rel="stylesheet" type="text/css" href="biblioteca.css">
-    <script type="text/javascript" src="biblioteca.js"></script>
+    <script type="text/javascript" src="bibliotecab.js"></script>
 </head>
 
 <body>
