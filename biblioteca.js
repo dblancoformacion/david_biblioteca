@@ -1,90 +1,73 @@
-items=['Titulos','Autores','Editoriales','Generos'];
-var x=[];
-var objetob;var posicionb;var posicion;
+
 window.addEventListener("load",()=>{
 
+if(window.location.search==("")){comienzo();}
 
-entrada();
+if(window.location.search==('?bloque=titulos')){titulos();}
 
-if(window.location.search==('?bloque=Titulos')){titulos(datos1);}else{
-	if(window.location.search==('?bloque=Autores')){
-		autores(datos2);
-	}else{if(window.location.search==('?bloque=Editoriales')){editoriales(datos3);}else{
-		if(window.location.search==('?bloque=Generos')){generos(datos4);}
-		}
-	}}
+if(window.location.search==('?bloque=generos')){generos();}
 
+if(window.location.search==('?bloque=editoriales')){editoriales();}
+
+if(window.location.search==('?bloque=autores')){autores();}
+
+for(var j=0;j<inicio.length;j++){if(window.location.search==('?bloque='+j)){
+	titulosb();
+}}
+console.log(window.location.search);console.log(inicio.length)
+
+
+
+
+
+	
 
 })
-
-function entrada(){
-	document.querySelector(".wrapper").innerHTML+='<div class="wrapperb"></div>';
-	for (var i=0;i<items.length;i++){
-		document.querySelector(".wrapperb").innerHTML+=
-		'<a href="?bloque='+items[i]+'"><div class="items">'+items[i]+'</div></a>';
-	}
-	
+function comienzo(){
+document.querySelector("body").innerHTML+='<div class="modal">';
+	for(var i=0;i<inicio.length;i++){
+		document.querySelector(".modal").innerHTML+=
+	'<a href="?bloque='+inicio[i].titulo+'"><div class="unidad">'+' - '+inicio[i].titulo+'</div></a>';
 
 }
 
+}
 function titulos(){
+document.querySelector("body").innerHTML+='<div class="modal">';
+	for(var i=0;i<inicio.length;i++){
+		document.querySelector(".modal").innerHTML+=
+	'<a href="?bloque='+inicio[i].id_titulo+'"><div class="unidad" id="'+
+	inicio[i].id_titulo+'">'+' - '+inicio[i].titulo+'</div></a>';
 	
-	document.querySelector(".wrapper").innerHTML+='<div class="modal"></div>';
+}
 
-	for (var i=0;i<datos1.length;i++){
+}
+function generos(){
+document.querySelector(".wrapper").innerHTML+='<div class="modal">';
+	for(var i=0;i<inicio.length;i++){
 		document.querySelector(".modal").innerHTML+=
-	'<div class="unidad" id="'+datos1[i].id_titulo+'">'
-	+'<a href="?id_titulo='+datos1[i].id_titulo+'">'
-	+datos1[i].titulo+'</a></div>';
-}
-x=document.querySelectorAll(".unidad");
-
-	x.forEach((v,i)=>{x[i].addEventListener("click",(event)=>{
-	objetob=event.target;posicionb=objetob.getAttribute("id");posicion=posicionb-1
-	document.querySelector(".wrapper").innerHTML+='<div class="modalb"></div>';
-	document.querySelector(".modalb").innerHTML+=
-	'<div class="unidadb">'+datos5[posicion].autor+' - '+
-						   datos5[posicion].nacionalidad+' - '+
-						   datos5[posicion].nacimiento+' - '+
-						   datos5[posicion].FALLECE+'</div>';	
-	})})
-
+	'<a href="?bloque='+inicio[i].genero+'"><div class="unidad">'+' - '+inicio[i].genero+'</div></a>';
 }
 
-function autores(datos2){
-	document.querySelector(".wrapper").innerHTML+='<div class="modal"></div>';
-
-	for (var i=0;i<datos2.length;i++){
+}
+function editoriales(){
+document.querySelector(".wrapper").innerHTML+='<div class="modal">';
+	for(var i=0;i<inicio.length;i++){
 		document.querySelector(".modal").innerHTML+=
-		'<a href=""><div class="unidad">'+datos2[i].autor+'</div></a>';
-	}
+	'<a href="?bloque='+inicio[i].editorial+'"><div class="unidad">'+' - '+inicio[i].editorial+'</div></a>';
 }
 
-function editoriales(datos3){
-	document.querySelector(".wrapper").innerHTML+='<div class="modal"></div>';
-	for (var i=0;i<datos3.length;i++){
+}
+function autores(){
+document.querySelector(".wrapper").innerHTML+='<div class="modal">';
+	for(var i=0;i<inicio.length;i++){
 		document.querySelector(".modal").innerHTML+=
-		'<a href=""><div class="unidad">'+datos3[i].editorial+'</div></a>';
-	}
+	'<a href="?bloque='+inicio[i].autor+'"><div class="unidad">'+' - '+inicio[i].autor+'</div></a>';
+}	
 }
-
-function generos(datos4){
-	document.querySelector(".wrapper").innerHTML+='<div class="modal"></div>';
-	for (var i=0;i<datos4.length;i++){
-		document.querySelector(".modal").innerHTML+=
-		'<a href="?id_genero='+datos4[i].id_genero+'"><div class="unidad">'+
-		datos4[i].genero+'</div></a>';
-	}
-/*	x=document.querySelectorAll(".unidad");console.log(x);
-
-	x.forEach((v,i)=>{x[i].addEventListener("click",(event)=>{
-	objetob=event.target;posicionb=objetob.getAttribute("id");posicion=posicionb-1
-	document.querySelector(".wrapper").innerHTML+='<div class="modalb"></div>';
-	document.querySelector(".modalb").innerHTML+=
-	'<div class="unidadb">'+datos6[posicion].genero+' - '+
-						   datos6[posicion].titulo+' - '+
-						   datos6[posicion].idioma+' - '+
-						   datos6[posicion].bilingue+'</div>';	
-	})})*/
-}
+function titulosb(){
+document.querySelector("body").innerHTML+='<div class="modal">';
 	
+		document.querySelector(".modal").innerHTML+=
+	'<div class="unidad">'+' - '+iniciob[0].autor+'</div';
+}		
