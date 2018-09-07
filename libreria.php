@@ -9,7 +9,7 @@ function sql2js($variable,$bbdd,$sql){
 	$mysqli->query("SET NAMES 'utf8'");
 	$resultado = $mysqli->query($sql);
 	$registros = $resultado->fetch_all(MYSQLI_ASSOC);
-	//var_dump($registros);
+	
 	foreach($registros as $numero=>$registro){
 			echo "$variable" . "[$numero]={};";
 			foreach($registro as $campo=>$valor){

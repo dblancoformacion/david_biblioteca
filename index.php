@@ -34,12 +34,14 @@
                 sql2js('inicio','logos',"SELECT TABLE_NAME titulo FROM information_schema.tables WHERE table_schema LIKE 'logos';");
                 break;
         }
-        for($a=0;$a<10;$a++){
+        for($a=1;$a<11;$a++){
             if($_GET['bloque']==$a){sql2js('iniciob','logos',"SELECT * FROM autores JOIN (SELECT * FROM titulos JOIN escriben USING(id_titulo))c1 USING(id_autor) where id_titulo=".$_GET['bloque'].";");}}
+        for($b=1;$b<11;$b++){
+            if($_GET['id_autor']==$b){sql2js('inicioc','logos',"SELECT * FROM autores JOIN (SELECT * FROM escriben JOIN titulos USING (id_titulo)) c1 USING (id_autor) WHERE 
+                id_autor=".$_GET['id_autor'].";");}}
         
-       /* if(isset($_GET['id_titulo'])){
-                $sql="SELECT * FROM titulos WHERE id_titulo=".$_GET['id_titulo'].";";
-                sql2js('titulo','logos',$sql);*/
+     
+       
         
 
  echo '<div class="wrapper"></div>'      
